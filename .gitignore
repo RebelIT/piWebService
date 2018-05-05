@@ -1,2 +1,4 @@
 *.txt
 *secrets.rb
+*.pem
+*.crt

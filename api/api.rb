@@ -1,8 +1,8 @@
 require 'sinatra'
 require 'sinatra/base'
 require 'sinatra/namespace'
-require_relative './http/http.rb'
-require_relative './secrets.rb'
+require_relative '../common/http/http.rb'
+require_relative '../common/secrets.rb'
 require_relative './sinatra_ssl'
 
 set :ssl_certificate, "cert.crt"

@@ -3,7 +3,7 @@ require 'sinatra/base'
 require 'sinatra/namespace'
 require 'webrick'
 require_relative './actions.rb'
-require_relative './secrets.rb'
+#require_relative './secrets.rb'
 require_relative './text.rb'
 require_relative '../common/http/http.rb'
 
@@ -11,21 +11,21 @@ set :port, 8089
 set :bind, '0.0.0.0'
 
 namespace '/api' do
-  namespace '/calendar/' do
+  namespace '/calendar' do
 
     get do
-      [200, {}, ["#{get_calendar}"]]
+      response = ApiReturns.new.get_calendar
     end
 
     namespace '/action' do
 
       get do
-        [200, {}, ["#{get_action}"]]
+        response = ApiReturns.new.get_action
       end
 
       post do
         input = JSON.parse(request.body.read)
-        error 401 unless valid_token(input['token'])
+        #error 401 unless valid_token(input['token'])
 
         action = input['action'].downcase
 
@@ -52,7 +52,7 @@ namespace '/api' do
           end
 
         else
-          err = "invalid request, #{action} not available, accepts #{action_accept}"
+          err = "invalid request, #{action} not available"
           logger.error err
           notify_error(err)
           halt 400 , err

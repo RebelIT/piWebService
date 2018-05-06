@@ -1,17 +1,27 @@
-action_accept = "reboot, shutdown, update"
+class ApiReturns
+  def get_action
+    msg = ["Calendar Action",
+          "Actions: #{action_accept}",
+          "Methods: POST",
+          "Param: action, token",
+          "Example:",
+          "     {",
+          "      \"token\" : \"xxxxxxxx\"",
+          "      \"action\" : \"xxxxxxxx\"",
+          "      }"
+        ].join("\n") + "\n"
+    return msg
+  end
 
-get_calendar = ["action",
-                "Perform actions against the wall mounted calendar"
-              ].join("\n") + "\n"
+  def get_calendar
+    msg = ["action",
+          "Perform actions against the wall mounted calendar"
+        ].join("\n") + "\n"
+    return msg
+  end
 
-
-get_action = ["Calendar Action",
-              "Actions: #{action_accept}",
-              "Methods: POST",
-              "Param: action, token",
-              "Example:",
-              "     {",
-              "      \"token\" : \"xxxxxxxx\"",
-              "      \"action\" : \"xxxxxxxx\"",
-              "      }"
-            ].join("\n") + "\n"
+  def action_accept
+    msg = "reboot, shutdown, update"
+    return msg
+  end
+end

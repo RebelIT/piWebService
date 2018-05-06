@@ -6,7 +6,6 @@ class ApiReturns
           "Param: action, token",
           "Example:",
           "     {",
-          "      \"token\" : \"xxxxxxxx\"",
           "      \"action\" : \"xxxxxxxx\"",
           "      }"
         ].join("\n") + "\n"

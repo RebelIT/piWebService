@@ -10,7 +10,7 @@ class CalendarAction
   end
 
   def update
-    shell = spawn( "sudo apt-get update -y && sudo apt-get dist-upgrade sudo && reboot" )
+    shell = spawn( "sudo apt-get update -y && sudo apt-get dist-upgrade -y sudo && reboot" )
     return "System is updating, sevices may be interrupted"
   end
 end

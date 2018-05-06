@@ -11,7 +11,7 @@ set :port, 8089
 set :bind, '0.0.0.0'
 
 namespace '/api' do
-  namespace '/notify/' do
+  namespace '/notify' do
 
     get do
       ["Notify Slack",
